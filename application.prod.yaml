@@ -1,0 +1,26 @@
+#服务配置
+server:
+  host: 'localhost'
+  prot: 3000
+#数据库配置
+mysql:
+  type: 'mysql'
+  host: 'localhost'
+  port: 3306
+  username: 'study'
+  password: '12345678'
+  database: 'study'
+  logging: true
+  entities: ['dist/**/*.entity{.ts.js}']
+  poolSize: 10
+  connectorPackage: 'mysql2'
+  charset: 'utf8mb4'
+#redis配置
+redis:
+  enable: true
+  host: 'localhost'
+  port: 6379
+  enableAuth: false
+#日志级别
+logger:
+  level: 'debug'
