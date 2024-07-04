@@ -8,6 +8,7 @@ import {
   HttpStatus,
   ValidationPipe,
 } from '@nestjs/common';
+import * as session from 'express-session';
 
 const config = getConfig();
 
@@ -16,11 +17,19 @@ async function bootstrap() {
     cors: true,
   });
   app.useLogger(app.get(WINSTON_LOGGER_TOKEN));
+  app.use(
+    session({
+      secret: 'zhao',
+      resave: false,
+      saveUninitialized: false,
+      name: 'session-id',
+    }),
+  );
   // 全局校验逻辑
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true, // 启用参数类型自动转换，常规设置
-      whitelist: true, // 监听参数白名单，常规设置
+      whitelist: true, // 监听参数白名单，常规设置 未添加任何装饰器的字段会被丢掉
       forbidNonWhitelisted: true, // 禁止非白名单参数，存在非白名单属性报错。此项可根据需求而定，如果设置false，将剥离非白名单属性
       errorHttpStatusCode: HttpStatus.BAD_REQUEST, // 设置校验失败后返回的http状态码
       // 设置校验失败后的响应数据格式

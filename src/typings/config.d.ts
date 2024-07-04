@@ -8,6 +8,11 @@ declare namespace Config {
 
   interface IMysql extends TypeOrmModuleOptions {}
 
+  interface IJwt {
+    secret: string;
+    expiresIn: string;
+  }
+
   interface IRedis {
     enable: boolean;
     host: string;
@@ -26,5 +31,6 @@ declare namespace Config {
     mysql: IMysql;
     redis: IRedis;
     logger: ILogger;
+    jwt?: IJwt;
   }
 }

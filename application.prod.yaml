@@ -10,8 +10,7 @@ mysql:
   username: 'study'
   password: '12345678'
   database: 'study'
-  logging: true
-  entities: ['dist/**/*.entity{.ts.js}']
+  logging: false
   poolSize: 10
   connectorPackage: 'mysql2'
   charset: 'utf8mb4'

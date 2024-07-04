@@ -1,7 +1,7 @@
 #服务配置
 server:
   host: 'localhost'
-  prot: 3000
+  prot: 4008
 #数据库配置
 mysql:
   type: 'mysql'
@@ -10,17 +10,22 @@ mysql:
   username: 'study'
   password: '12345678'
   database: 'study'
-  logging: true
-  entities: ['dist/**/*.entity{.ts.js}']
+  logging: false
   poolSize: 10
   connectorPackage: 'mysql2'
   charset: 'utf8mb4'
+  synchronize: true
 #redis配置
 redis:
   enable: true
   host: 'localhost'
   port: 6379
   enableAuth: false
+jwt:
+  #秘钥
+  secret: 'zhao'
+  # 过期时间，表示7天过期
+  expiresIn: '7d'
 #日志级别
 logger:
-  level: 'debug'
+  level: 'info'

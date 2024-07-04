@@ -16,6 +16,7 @@ export class WinstonModule {
           useValue: new MyLogger(options),
         },
       ],
+      exports: [WINSTON_LOGGER_TOKEN],
     };
   }
 }
